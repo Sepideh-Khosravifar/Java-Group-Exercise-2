@@ -4,97 +4,113 @@ public interface WebDriver {
     void open();
     void close();
     String getTitle();
-}
+    }
 
-interface TakesScreenShot {
+interface getScreenShot {
+
     void getScreenshot();
-}
+    }
 
-interface RemoteWebDriver extends WebDriver, TakesScreenShot {
+ interface RemoteWebDriver extends WebDriver, getScreenShot {
+
     void navigate();
-}
+    }
 
-class ChromeDriver implements RemoteWebDriver{
+ class ChromeDriver implements RemoteWebDriver{
 
     @Override
     public void open() {
+
         System.out.println("Chrome Driver opens");
     }
 
     @Override
     public void close() {
+
         System.out.println("Chrome Driver closes");
     }
 
     @Override
     public String getTitle() {
 
-        return "Title Chrome Driver" ;
+        return "Chrome Driver gets a Title" ;
     }
 
     @Override
     public void navigate() {
-        System.out.println("navigates to Chrome Driver");
+
+        System.out.println("Chrome Driver navigates");
     }
 
     @Override
     public void getScreenshot() {
+
         System.out.println("Chrome Driver takes a screenshot");
     }
 }
-class FireFoxDriver implements RemoteWebDriver{
+
+ class FireFoxDriver implements RemoteWebDriver {
 
     @Override
     public void open() {
+
         System.out.println("FireFox Driver opens");
     }
 
     @Override
     public void close() {
+
         System.out.println("FireFox Driver closes");
     }
 
     @Override
     public String getTitle() {
 
-        return "Title FireFox Driver";
+        return "FireFox Driver gets a Title";
     }
 
     @Override
     public void navigate() {
-        System.out.println("navigates to FireFox Driver");
+
+        System.out.println("FireFox Driver navigates");
     }
 
     @Override
     public void getScreenshot() {
+
         System.out.println("FireFox Driver takes a screenshot");
     }
 }
-class SafariDriver implements RemoteWebDriver{
+
+ class SafariDriver implements RemoteWebDriver{
 
     @Override
     public void open() {
-        System.out.println("opens Safari Driver");
+
+        System.out.println("Safari Driver opens");
     }
 
     @Override
     public void close() {
-        System.out.println("closes Safari Driver");
+
+        System.out.println("Safari Driver closes ");
     }
 
     @Override
     public String getTitle() {
 
-        return "Title Safari Driver";
+        return "Safari Driver gets a Title";
     }
 
     @Override
     public void navigate() {
-        System.out.println("navigates to Safari Driver");
+
+        System.out.println("Safari Driver navigates");
     }
 
     @Override
     public void getScreenshot() {
+
         System.out.println("Safari Driver takes a screenshot");
     }
 }
@@ -103,6 +119,7 @@ class WebDriverTester {
     public static void main(String[] args) {
 
         RemoteWebDriver[] driver = {new ChromeDriver(), new FireFoxDriver(), new SafariDriver()};
+
         for (RemoteWebDriver d : driver) {
             d.open();
             d.close();

@@ -12,39 +12,53 @@ public class Registration {
     private String userName;
     private String password;
 
-    public void setEmail(String email){
-        this.email=email;
-        if(email.equals("yahoo.com")){
+    public void setEmail(String email) {
+
+        this.email = email;
+
+        if(email.equals("yahoo.com")) {
+
             System.out.println("valid email");
-        }else{
-            System.out.println("Valid email is only considered to be yahoo.com");
+
+        } else{
+
+            System.out.println("invalid email");
         }
     }
+
     public void setUserName(String userName) {
+
         this.userName=userName;
-        if (userName.isEmpty()||userName.length() < 6) {
-            System.out.println("username could not be empty or less than 6 characters");
-        }
-        else {
-            System.out.println("valid username");
+
+        if (!userName.isEmpty() && userName.length() > 6) {
+
+            System.out.println("valid userName");
+
+        } else {
+
+            System.out.println("invalid userName");
         }
     }
-    public void password(String password){
+
+    public void password(String password) {
+
         this.password=password;
+
         if(password.isEmpty()||password.length()<6||password.contains(userName)){
 
-            System.out.println("password could not be empty or less than 6 characters or contain username");
-        }else {
-            System.out.println("valid password account registered");
+            System.out.println("invalid password");
+
+        } else {
+
+            System.out.println("valid password, account registered");
         }
     }
 
     public static void main(String[] args) {
-        Registration user=new Registration();
-        user.setEmail("yahoo");
-        user.setUserName("saminar");
-        user.password("azlankhan");
+
+        Registration user = new Registration();
+        user.setEmail("yahoo.com");
+        user.setUserName("Parvaneh");
+        user.password("L1f3I$G00d");
     }
-
-
 }

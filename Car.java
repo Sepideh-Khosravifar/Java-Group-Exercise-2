@@ -1,61 +1,82 @@
 package com.syntax.groupProjectII;
 
 public class Car {
-    double  carPrice;
+    double carPrice;
     String color;
+
     //constructor to initialize values of instance variables
     public Car(double carPrice, String color) {
         this.carPrice = carPrice;
         this.color = color;
-    }//method
+    }
+    //method
     double calculatePrice(){
         return carPrice;
     }
-}
-class Sedan extends Car {
-
-    double carWeight;
-    //constructor calling super constructor
-    public Sedan(double carPrice, String color, double carWeight) {
-        super(carPrice, color);
-        this.carWeight = carWeight;
     }
+
+class Truck extends Car {
+        double Weight;
+
+    //constructor calling super constructor
+    public Truck(double carPrice, String color, double Weight) {
+        super(carPrice, color);
+        this.Weight = Weight;
+    }
+
     //method calculating discount
-    double calculatePrice(){
+    double calculatePrice() {
         double discount;
-        if(carWeight>2000){
-            discount= carPrice - carPrice * 10 / 100;
+
+        if(Weight > 2000) {
+            discount= carPrice - (carPrice * 0.10);
+
         }else{
-            discount=carPrice-carPrice*20/100;
+            discount=carPrice - (carPrice * 0.20);
         }
+
         return discount;
     }
 }
-class Truck extends Car{
+
+class Sedan extends Car{
     double length;
+
     //constructor calling super constructor
-    public Truck(double carPrice, String color, double length) {
+    public Sedan(double carPrice, String color, double length) {
         super(carPrice, color);
         this.length = length;
-    }//method calculating discounted price
+    }
+
+    //method calculating discounted price
     double calculatePrice(){
         double discount;
+
         if(length>20){
-            discount= carPrice - carPrice * 5 / 100;
-        }else{
-            discount=carPrice-carPrice*10/100;
+
+            discount = carPrice - (carPrice * 0.05);
+
+        } else{
+
+            discount = carPrice - (carPrice * 0.1);
         }
+
         return discount;
     }
 }
+
 class CarTester{
     public static void main(String[] args) {
-        //creating object for super and  both subclasses and calling the method
-        Car c=new Car(60000,"silver");
-        System.out.println("Price of the car is "+c.calculatePrice());
-        Car s=new Sedan(50000,"white",1500 );
-        System.out.println("Price of Sedan After Discount is "+ s.calculatePrice());
-        Car t= new Truck(65000, "black", 10);
-        System.out.println("Price of Truck After Discount is "+t.calculatePrice());
+
+        //creating objects for super class and subclasses as well as calling the method
+
+        Car c = new Car(35000,"red");
+        System.out.println("Price of the car is: "+ c.calculatePrice());
+
+        Car t = new Truck(85000, "grey", 3645);
+        System.out.println("Price of the Truck after discount is: "+t.calculatePrice());
+
+        Car s = new Sedan(40000,"white",187.3);
+        System.out.println("Price of Sedan after discount is: "+ s.calculatePrice());
     }
 }
